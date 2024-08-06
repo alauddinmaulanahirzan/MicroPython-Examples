@@ -2,8 +2,8 @@ import network
 import mip
 
 # Put Your SSID and Password
-SSID: str = ""
-Password: str = ""
+SSID: str = "MikroTik-Net"
+Password: str = "raspberry"
 reset = True # To Reset Network State and Force Connect
 
 print(">> Start MicroPython Libs Installer ... ")

@@ -1,13 +1,9 @@
 from machine import ADC, Pin
 from mq9 import MQ
 import time
-import dht
-import network
-import ntptime
-import urequests
 
 # Global Params
-gas = ADC(Pin(35))
+gas = ADC(Pin(34))
 led = Pin(2,Pin.OUT)
 led.value(0)
 
@@ -62,8 +58,14 @@ def main():
     print("")
     
     while True:
-        result = read_mq9(mq)
-        print(f"ADC Value : {result[0]}, Sensor Voltage : {result[1]} Volt, and Carbon Monoxide : {result[2]} ppm")
+        result = round(read_mq9(mq)[2],3)
+        
+        if result < 0:
+            result = 0
+        elif result > 1000:
+            result = 1000
+        
+        print(f"Carbon Monoxide : {result} ppm")
     
 if __name__ == "__main__":
     main()

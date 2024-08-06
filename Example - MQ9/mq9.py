@@ -26,7 +26,7 @@ class MQ:
 
     def __init__(self, ro=10):
         self.ro = ro
-        self.adc = ADC(Pin(35))
+        self.adc = ADC(Pin(34))
 
         self.LPGCurve = [2.3, 0.21, -0.47]  # two points are taken from the curve.
         # with these two points, a line is formed which is "approximately equivalent"
